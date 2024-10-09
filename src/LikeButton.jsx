@@ -1,11 +1,12 @@
 import { useState } from 'react';
+import PropTypes from 'react';
 import './LikeButton.css';
 
-function LikeButton() {
+function LikeButton(props) {
     const defaultLiked = false;
     const defaultLikeCount = 1;
-    const [liked, setLiked] = useState(defaultLiked);
-    const [likeCount, setLikeCount] = useState(defaultLikeCount);
+    const [liked, setLiked] = useState(props.liked);
+    const [likeCount, setLikeCount] = useState(props.likeCount);
 
     const getButton = () => {
         if (liked) {
@@ -26,6 +27,16 @@ function LikeButton() {
             <span> {likeCount} </span>
         </div>
     )
+}
+
+LikeButton.propTypes = {
+    liked: PropTypes.bool,
+    likeCount: PropTypes.number,
+}
+
+LikeButton.defaultProps = {
+    liked: false,
+    likeCount: 0,
 }
 
 export default LikeButton;

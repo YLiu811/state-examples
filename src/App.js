@@ -5,6 +5,7 @@ function App() {
   return (
     <div className="App">
       <LikeButton />
+      <LikeButton liked={true} likeCount={5}/>
     </div>
   );
 }
